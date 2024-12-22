@@ -1,0 +1,133 @@
+/* Interview Container */
+.interview-container {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  /* Video Container */
+  .video-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  video {
+    width: 100%;
+    max-width: 640px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+  }
+  
+  /* Answer Section */
+  .answer-section {
+    margin-top: 20px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #ffeb3b;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+  }
+  
+  /* Speech Bubble Animation */
+  .bot-speech-container {
+    position: relative;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .speech-bubble {
+    position: absolute;
+    background-color: #ffeb3b;
+    padding: 10px 20px;
+    border-radius: 15px;
+    max-width: 300px;
+    animation: bubble-fade-in 1s ease-in-out forwards;
+  }
+  
+  @keyframes bubble-fade-in {
+    0% {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .typing-effect {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid black;
+    animation: typing 2s steps(40) 1s forwards, blink-caret 0.75s step-end infinite;
+  }
+  
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  
+  @keyframes blink-caret {
+    50% {
+      border-color: transparent;
+    }
+  }
+  
+  /* Microphone Icon Animation */
+  .microphone-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .microphone-pulse {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ffeb3b;
+    box-shadow: 0 0 0 0 rgba(255, 235, 59, 0.6);
+    animation: pulse-animation 1.5s infinite;
+  }
+  
+  @keyframes pulse-animation {
+    0% {
+      box-shadow: 0 0 0 0 rgba(255, 235, 59, 0.6);
+      transform: scale(1);
+    }
+    70% {
+      box-shadow: 0 0 0 30px rgba(255, 235, 59, 0);
+      transform: scale(1.2);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(255, 235, 59, 0);
+      transform: scale(1);
+    }
+  }
+  
+  /* Voice Speed Slider */
+  #voiceSpeed {
+    width: 100%;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+  

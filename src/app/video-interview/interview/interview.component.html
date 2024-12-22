@@ -1,0 +1,62 @@
+<div class="interview-container">
+    <h1>Video Interview</h1>
+    <button *ngIf="currentQuestionIndex === 0" (click)="startInterview()">Start Interview</button>
+  
+    <div>
+      <h2>Elapsed Time: {{ elapsedTime }}</h2>
+  
+      <div class="video-container">
+        <video #videoElement autoplay muted></video>
+      </div>
+  
+      <h3>Current Question:</h3>
+      <p>{{ questions[currentQuestionIndex] }}</p>
+  
+      <div class="answer-section">
+        <p><strong>Answer:</strong> {{ currentAnswer }}</p>
+        <button (click)="startAnswerRecording()" [disabled]="isRecording">
+          Record Answer
+        </button>
+        <button (click)="stopAnswerRecording()" [disabled]="!isRecording">
+          Stop Recording
+        </button>
+      </div>
+  
+      <button (click)="nextQuestion()">Next Question</button>
+    </div>
+  
+    <div *ngIf="currentQuestionIndex > questions.length">
+      <h2>Interview Complete</h2>
+      <h3>Total Time: {{ elapsedTime }}</h3>
+      <div class="question-log">
+        <div *ngFor="let log of questionAnswerLogs">
+          <h4>Q: {{ log.question }}</h4>
+          <p>A: {{ log.answer }}</p>
+        </div>
+      </div>
+      <button (click)="uploadVideo()">Upload Video</button>
+    </div>
+  
+    <label for="voiceSpeed">Voice Speed:</label>
+    <input
+      id="voiceSpeed"
+      type="range"
+      min="0.5"
+      max="2"
+      step="0.1"
+      [(ngModel)]="voiceSpeed"
+    />
+  
+
+      <!-- Speech Bubble Container -->
+  <div class="bot-speech-container" *ngIf="isSpeaking">
+    <div class="speech-bubble">
+      <p class="typing-effect">{{ botSpeechText }}</p>
+    </div>
+  </div>
+
+  <!-- Microphone Icon Container -->
+  <div class="microphone-container" *ngIf="isSpeaking">
+    <div class="microphone-pulse"></div>
+  </div>
+</div>
